@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import FHIR from 'fhirclient';
 import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+FHIR.oauth2.init({
+    clientId: 'Input client id you get when you register the app',
+    scope: 'launch/patient openid profile'
+}).then((client) => {
+    client.patient.read().then((patient) => {
+        ReactDOM.render(<App patient={patient} />, rootElement);
+    }, (error) => {
+        console.error(error);
+        ReactDOM.render(<p> {error.stack} </p>, rootElement);
+    });
+});

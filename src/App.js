@@ -1,24 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const getPatientName = (name = [] ) => {
+  const entry = name.find(n => n.use === 'official') || name[0];
+  return entry ? `${entry.given.join(' ')} ${entry.family}` : 'No name';
+};
+
+const App = ({ patient }) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1> {getPatientName(patient.name)} </h1>
     </div>
   );
 }
