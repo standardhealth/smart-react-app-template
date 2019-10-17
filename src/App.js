@@ -12,7 +12,7 @@ const App = ({ patient }) => {
     <div >
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"/>
-      <Header/>
+      <Header title='mCODE pathways'/>
       <h1> {getPatientName(patient.name)} </h1>
     </div>
   );
