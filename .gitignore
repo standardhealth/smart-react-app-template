@@ -22,3 +22,6 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# https://github.com/facebook/create-react-app/issues/6560
+src/*.d.ts
