@@ -1,0 +1,30 @@
+.header {
+  background-color: #4a4a4a;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  max-height: 4em;
+}
+
+.header__logo {
+  height: 80%;
+}
+
+.header-item {
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+}
+
+.header__title {
+  font: 1.5em "Avenir Next";
+  color: whitesmoke;
+}
+
+.material-icons.md-light {
+  color: whitesmoke;
+  font-size: 200%;
+}
+
+.header-right {
+  margin-left: auto;
+}

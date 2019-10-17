@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from "./Header";
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -9,6 +10,9 @@ const getPatientName = (name = [] ) => {
 const App = ({ patient }) => {
   return (
     <div >
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+      <Header/>
       <h1> {getPatientName(patient.name)} </h1>
     </div>
   );
