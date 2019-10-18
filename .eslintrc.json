@@ -12,7 +12,12 @@
     "project": "./tsconfig.json"
   },
   "rules": {
-    "@typescript-eslint/indent": ["warn", 2],
+    "@typescript-eslint/indent": ["warn", 2, { "FunctionDeclaration": {"parameters": "first"},
+                                               "FunctionExpression":  {"parameters": "first"},
+                                               "CallExpression": {"arguments": "first"},
+                                               "ObjectExpression": "first",
+                                               "ArrayExpression": "first",
+                                               "ignoredNodes": [ "JSXAttribute"]}],
     "brace-style": "off",
     "@typescript-eslint/brace-style": "error",
     "func-call-spacing": "off",
