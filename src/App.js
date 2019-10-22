@@ -1,5 +1,6 @@
 import React from 'react';
 import Header from "./Header";
+import Navigation from "./Navigation";
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -13,9 +14,12 @@ const App = ({ patient }) => {
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"/>
       <Header title='mCODE pathways'/>
-      <h1> {getPatientName(patient.name)} </h1>
+      <Navigation name={getPatientName(patient.name)}
+                  birthDate={patient.birthDate}
+                  gender={patient.gender}
+                  address={patient.address} />
     </div>
   );
-}
+};
 
 export default App;

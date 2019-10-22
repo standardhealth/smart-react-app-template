@@ -1,0 +1,20 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #e7e7e9;
+}
+
+.navigation > * {
+  margin-right: 2em;
+}
+
+.navigation i {
+  font-size: 250%;
+}
+
+.left-panel {
+  display: flex;
+  align-items: center;
+}

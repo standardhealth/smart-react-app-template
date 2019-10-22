@@ -4,7 +4,7 @@ import logo from './logo.svg';
 
 type HeaderProps = {title: string};
 
-const Header = (props: HeaderProps) => {
+const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   return (
     <header className="header">
       <img src={logo} className="header__logo header-item" alt="logo" />
