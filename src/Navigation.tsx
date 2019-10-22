@@ -31,7 +31,7 @@ const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
                          address={getPatientAddress(address)} />
       </div>
       <PathwaySelection pathways={['Breast Cancer Pathway: Early Stage HER2+',
-        'Exemplitis Pathway']}/>
+                                   'Exemplitis Pathway']}/>
     </nav>
   );
 };
