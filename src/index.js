@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import FHIR from 'fhirclient';
 import './index.css';
 import App from './App';
-
 const rootElement = document.getElementById('root');
 
 const smartLaunch= () => {
@@ -14,7 +13,7 @@ const smartLaunch= () => {
   }).then((client) => {
     // Fetch selected patient resource and render
     client.patient.read().then((patient) => {
-      ReactDOM.render(<App patient={patient} />, rootElement);
+        ReactDOM.render(<App patient={patient} client = {client} />, rootElement);
     }, (error) => {
       console.error(error);
       ReactDOM.render(<p> {error.stack} </p>, rootElement);

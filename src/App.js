@@ -2,6 +2,7 @@ import React from 'react';
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import logo from './logo.svg';
+import {getPatientRecord} from './util/fhir_extract';
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -9,18 +10,32 @@ const getPatientName = (name = [] ) => {
   return entry ? `${entry.given.join(' ')} ${entry.family}` : 'No name';
 };
 
-const App = ({ patient }) => {
-  return (
-    <div >
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-            rel="stylesheet"/>
-      <Header logo={logo} title='SMART App'/>
-      <Navigation name={getPatientName(patient.name)}
-                  birthDate={patient.birthDate}
-                  gender={patient.gender}
-                  address={patient.address} />
-    </div>
-  );
-};
+class App extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            patientRecord: []
+        }
+
+    }
+    componentDidMount() {
+        getPatientRecord(this.props.client, this.updateStateElement);
+    }
+
+    updateStateElement = (elementName, text) => {
+        this.setState({ [elementName]: text });
+    }
+
+
+    render() {
+        return (
+            <div >
+              <h1> {getPatientName(this.props.patient.name)} </h1>
+              {`Fetched ${this.state.patientRecord.length} resources`}
+            </div>
+          );
+    }
+
+}
 
 export default App;
