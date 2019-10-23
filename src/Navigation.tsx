@@ -1,7 +1,7 @@
 import React from 'react';
 import PatientSnapshot from './PatientSnapshot';
 import './Navigation.css';
-import PathwaySelection from './PathwaySelection';
+import DropDown from "./DropDown";
 
 type Props = {
   name: string;
@@ -30,8 +30,11 @@ const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
                          gender={gender}
                          address={getPatientAddress(address)} />
       </div>
-      <PathwaySelection pathways={['Breast Cancer Pathway: Early Stage HER2+',
-                                   'Exemplitis Pathway']}/>
+      <DropDown label='Selection: '
+                id='patient-view'
+                name='available views'
+                options={['Medications',
+                                   'Chart']}/>
     </nav>
   );
 };

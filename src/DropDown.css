@@ -1,4 +1,4 @@
-.pathway_selection {
+.selection {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -6,7 +6,7 @@
   max-width: 60%;
 }
 
-.pathway_selection select {
+.selection select {
   width: 100%;
   font-size: 1.5em;
   border: gray;

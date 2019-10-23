@@ -13,7 +13,7 @@ const App = ({ patient }) => {
     <div >
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"/>
-      <Header title='mCODE pathways'/>
+      <Header title='SMART App'/>
       <Navigation name={getPatientName(patient.name)}
                   birthDate={patient.birthDate}
                   gender={patient.gender}

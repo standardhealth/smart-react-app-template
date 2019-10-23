@@ -24,6 +24,3 @@ const smartLaunch= () => {
 };
 
 smartLaunch();
-
-// ReactDOM.render(<Header title='mCODE pathways'/>, rootElement);
-
