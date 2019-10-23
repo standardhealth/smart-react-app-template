@@ -1,5 +1,5 @@
 import React from 'react';
-import './PatientSnapshot.css';
+import './PatientSnapshot.scss';
 
 interface Props {
   name: string;
