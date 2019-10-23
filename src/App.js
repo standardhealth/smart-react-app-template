@@ -1,6 +1,7 @@
 import React from 'react';
-import Header from "./Header";
-import Navigation from "./Navigation";
+import Header from 'components/Header';
+import Navigation from './Navigation';
+import logo from './logo.svg';
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -13,7 +14,7 @@ const App = ({ patient }) => {
     <div >
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
             rel="stylesheet"/>
-      <Header title='SMART App'/>
+      <Header logo={logo} title='SMART App'/>
       <Navigation name={getPatientName(patient.name)}
                   birthDate={patient.birthDate}
                   gender={patient.gender}
