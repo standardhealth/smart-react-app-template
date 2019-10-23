@@ -88,7 +88,6 @@ function getEverythingRevInclude(client, supportedResources, callback) {
     const query = supportedResources.join("&_revinclude=");
     if (query) {
         client.request(`/Patient?_id=${client.patient.id}&_revinclude=${query}`, {flat: true}).then((result)=>{
-            countTypes(result);
             callback("patientRecord", result);
         }).catch((error) =>{
             getEverythingManually(client, supportedResources, callback);
@@ -96,20 +95,6 @@ function getEverythingRevInclude(client, supportedResources, callback) {
     } else {
         getEverythingManually(client, RESOURCES, callback);
     }
-
-}
-
-function countTypes(bundle) {
-    console.log(bundle);
-    const x = {};
-    bundle.forEach((resource)=>{
-        if(x[resource.resourceType]){
-            x[resource.resourceType]++;
-        }else {
-            x[resource.resourceType] = 1
-        }
-    });
-    console.log(x);
 
 }
 
