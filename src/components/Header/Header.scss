@@ -2,22 +2,23 @@
   background-color: #4a4a4a;
   height: 40vh;
   display: flex;
+  justify-content: space-between;
   align-items: center;
   max-height: 4em;
-}
 
-.header__logo {
-  height: 80%;
-}
+  > * {
+    margin-left: 0.25em;
+    margin-right: 0.25em;
+  }
 
-.header-item {
-  margin-left: 0.25em;
-  margin-right: 0.25em;
-}
+  h1 {
+    font: 1.5em "Avenir Next";
+    color: whitesmoke;
+  }
 
-.header__title {
-  font: 1.5em "Avenir Next";
-  color: whitesmoke;
+  img {
+    height: 80%;
+  }
 }
 
 .material-icons.md-light {
