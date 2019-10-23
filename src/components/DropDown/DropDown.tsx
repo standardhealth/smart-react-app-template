@@ -13,7 +13,7 @@ const DropDown: React.FC<Props> = ({options, label, id, name}: Props) => {
     <div className='selection'>
       <label htmlFor={id}>{label}</label>
       <select id={id} name={name}>
-        {options.map((option) => <option value='s'>{option}</option>)}
+        {options.map((option, index) => <option value='s' key={index}>{option}</option>)}
       </select>
     </div>
   );
