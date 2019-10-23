@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import DropDown from "./DropDown";
+import DropDown from './DropDown';
 
 it('renders the options', () => {
   const label = 'drop down options';
