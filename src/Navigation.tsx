@@ -1,7 +1,7 @@
 import React from 'react';
 import PatientSnapshot from './PatientSnapshot';
 import './Navigation.css';
-import DropDown from "./DropDown";
+import DropDown from './DropDown';
 
 type Props = {
   name: string;
@@ -34,7 +34,7 @@ const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
                 id='patient-view'
                 name='available views'
                 options={['Medications',
-                                   'Chart']}/>
+                          'Chart']}/>
     </nav>
   );
 };
