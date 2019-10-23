@@ -1,6 +1,6 @@
 import React from 'react';
 import PatientSnapshot from 'components/PatientSnapshot';
-import './Navigation.css';
+import './Navigation.scss';
 import DropDown from 'components/DropDown';
 
 type Props = {

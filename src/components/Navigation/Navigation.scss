@@ -4,14 +4,14 @@
   justify-content: space-between;
   padding: 1em;
   background-color: #e7e7e9;
-}
 
-.navigation > * {
-  margin-right: 2em;
-}
+  > * {
+    margin-right: 2em;
+  }
 
-.navigation i {
-  font-size: 250%;
+  i {
+    font-size: 250%;
+  }
 }
 
 .left-panel {

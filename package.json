@@ -8,6 +8,7 @@
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
     "fhirclient": "^2.1.0",
+    "node-sass": "^4.12.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
     "react-scripts": "3.2.0",
