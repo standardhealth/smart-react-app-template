@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from 'components/Header';
-import Navigation from './Navigation';
+import Navigation from 'components/Navigation';
 import logo from './logo.svg';
 
 // get name from resource
