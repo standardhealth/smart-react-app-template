@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import FHIR from 'fhirclient';
 import './index.css';
 import App from './App';
-import Header from "./Header";
 
 const rootElement = document.getElementById('root');
 

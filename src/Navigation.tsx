@@ -1,7 +1,7 @@
 import React from 'react';
 import PatientSnapshot from './PatientSnapshot';
 import './Navigation.css';
-import DropDown from './DropDown';
+import DropDown from 'components/DropDown';
 
 type Props = {
   name: string;
