@@ -1,5 +1,5 @@
 import React from 'react';
-import './DropDown.css';
+import './DropDown.scss';
 
 interface Props {
   label?: string;
