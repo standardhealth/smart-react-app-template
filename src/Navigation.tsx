@@ -1,5 +1,5 @@
 import React from 'react';
-import PatientSnapshot from './PatientSnapshot';
+import PatientSnapshot from 'components/PatientSnapshot';
 import './Navigation.css';
 import DropDown from 'components/DropDown';
 
