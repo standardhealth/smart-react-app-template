@@ -6,6 +6,12 @@ type HeaderProps = {
   logo: string;
 };
 
+/**
+ * Basic Header Element.
+ *
+ * @param props - contains the title and logo to be used in the header
+ * @constructor
+ */
 const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   return (
     <header className="header">

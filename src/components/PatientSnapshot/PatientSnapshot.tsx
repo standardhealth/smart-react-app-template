@@ -9,6 +9,12 @@ interface Props {
   photo?: string;
 }
 
+/**
+ * A snapshot of the patient's information.
+ *
+ * @param patient - The patient used in the snapshot
+ * @constructor
+ */
 const PatientSnapshot: React.FC<Props> = (patient: Props) => {
   return(
     <div className="snapshot">
@@ -30,6 +36,13 @@ interface FieldProps {
   value: string;
 }
 
+/**
+ * A field and its description
+ *
+ * @param label - the field text
+ * @param value - the value of the field
+ * @constructor
+ */
 const SnapshotField: React.FC<FieldProps> = ({label, value}: FieldProps) => {
   return(
     <div>

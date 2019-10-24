@@ -18,6 +18,16 @@ interface OnChangeCallback {
   (event: ChangeEvent<HTMLSelectElement>): void;
 }
 
+/**
+ * Basic dropdown input
+ *
+ * @param options - the text and associated value for the dropdown options
+ * @param label - Label for the drop down element
+ * @param id - The id of the select element
+ * @param name - the name of the select option
+ * @param onChange - the callback called when the selection is changed
+ * @constructor
+ */
 const DropDown: React.FC<Props> = ({options, label, id, name, onChange}: Props) => {
   return(
     <div className='selection'>
