@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ChangeEvent} from 'react';
 import PatientSnapshot from 'components/PatientSnapshot';
 import './Navigation.scss';
 import DropDown from 'components/DropDown';
@@ -20,6 +20,10 @@ const getPatientAddress = (address: Array<Address> = []): string => {
   return entry ? [entry.city, entry.state].filter(item => !!item).join(', ') : 'No Address';
 };
 
+const consoleLog = (event: ChangeEvent<HTMLSelectElement>) => {
+  console.log(event.target.value);
+}
+
 const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
   return (
     <nav className='navigation'>
@@ -33,8 +37,8 @@ const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
       <DropDown label='Selection: '
                 id='patient-view'
                 name='available views'
-                options={['Medications',
-                          'Chart']}/>
+                options={[{text: 'Medications', value: 'meds'},
+                          { text: 'Chart', value: 'chart'}]} onChange={consoleLog}/>
     </nav>
   );
 };
