@@ -23,7 +23,8 @@ const DropDown: React.FC<Props> = ({options, label, id, name, onChange}: Props) 
     <div className='selection'>
       <label htmlFor={id}>{label}</label>
       <select id={id} name={name} onChange={onChange}>
-        {options.map((option, index) => <option value={option.value} key={index}>{option.text}</option>)}
+        {options.map((option, index) => <option value={option.value}
+                                                key={index}>{option.text}</option>)}
       </select>
     </div>
   );

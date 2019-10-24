@@ -1,4 +1,4 @@
-import React, {ChangeEvent} from 'react';
+import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import DropDown from './DropDown';
@@ -19,7 +19,7 @@ it('renders the options', () => {
   const optionsRendered = getAllByRole('option');
   expect(optionsRendered.length).toEqual(options.length);
   options.forEach(option => {
-    const element = getByText(option.text)
+    const element = getByText(option.text);
     expect(element).toBeDefined();
     expect(element).toHaveValue(option.value);
   });
@@ -27,12 +27,12 @@ it('renders the options', () => {
 
 it('calls the onChange callback when a change occurs', () => {
   const myCallback = jest.fn().mockImplementation(() => {
-    console.log("changeHandler mock triggered");
+    console.log('changeHandler mock triggered');
   });
   const { getByLabelText } = render(<DropDown id={idText}
                                          name={name}
                                          options={options}
                                          label={label} onChange={myCallback}/>);
-  fireEvent.change(getByLabelText(label), { target: { value: options[1]}})
+  fireEvent.change(getByLabelText(label), { target: { value: options[1]}});
   expect(myCallback).toHaveBeenCalled();
 });
