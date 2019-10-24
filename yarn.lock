@@ -4307,6 +4307,12 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
+"fhir-visualizers@https://github.com/synthetichealth/fhir-visualizers#package":
+  version "0.0.1"
+  resolved "https://github.com/synthetichealth/fhir-visualizers#e7f829a71b162d1f62890d221a0a5995f82153ee"
+  dependencies:
+    moment "^2.24.0"
+
 fhirclient@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fhirclient/-/fhirclient-2.1.0.tgz#815dd779c498b48db59f89824ba8c8b11b08bfcf"
@@ -6765,6 +6771,11 @@ mkdirp@0.5.1, mkdirp@0.5.x, "mkdirp@>=0.5 0", mkdirp@^0.5.0, mkdirp@^0.5.1, mkdi
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
   dependencies:
     minimist "0.0.8"
+
+moment@^2.24.0:
+  version "2.24.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
+  integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
 
 move-concurrently@^1.0.1:
   version "1.0.1"
