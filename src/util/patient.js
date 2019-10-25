@@ -1,4 +1,4 @@
-const RESOURCES = [
+const ALL_RESOURCES_PATIENT_REFERENCE = [
     "ReferralRequest:patient",
     "DocumentManifest:patient",
     "Goal:patient",
@@ -211,5 +211,5 @@ const RESOURCES = [
   ]
 
   export {
-      RESOURCES
+      ALL_RESOURCES_PATIENT_REFERENCE
   }

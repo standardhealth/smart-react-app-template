@@ -19,7 +19,8 @@ class App extends React.Component {
 
     }
     componentDidMount() {
-        getPatientRecord(this.props.client, this.updateStateElement);
+        const patientRecordPromise = getPatientRecord(this.props.client);
+        patientRecordPromise.then(patientRecord => this.setState({patientRecord}));
     }
 
     updateStateElement = (elementName, text) => {

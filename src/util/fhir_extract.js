@@ -1,19 +1,19 @@
-import {RESOURCES} from './patient';
+import {ALL_RESOURCES_PATIENT_REFERENCE} from './patient';
 
 /**
  * There are slight discrepencies between the $everything, revinclude, and manual methods that affect the resources that might be returned
  * @param {Object} client - the fhir client
- * @param {function} callback - function to send data to when promise resolves
  */
-function getPatientRecord(client, callback) {
-    client.request(`/metadata`).then((statement)=>{
-        if (statement.rest[0].operation.filter((e)=>{ return (e.definition.reference || e.definition) ==="OperationDefinition/Patient--everything"}).length>0) {
+function getPatientRecord(client) {
+    return client.request(`/metadata`).then((statement)=>{
+        if (statement.rest[0].operation.find(e => (e.definition.reference || e.definition) ==="OperationDefinition/Patient--everything")) {
             // supports patient everything
-            getEverything(client, callback);
+            return getEverything(client);
         } else {
+            console.log("Cannot use $everything, using reverse includes instead");
             const supportedResources = [];
             let revIncludeResources = [];
-            statement.rest[0].resource.forEach((resource)=>{
+            statement.rest[0].resource.forEach((resource) => {
                 if (resource.type === "Patient") {
                     if (resource.searchRevInclude) {
                         revIncludeResources = resource.searchRevInclude
@@ -32,9 +32,9 @@ function getPatientRecord(client, callback) {
 
             })
             if (revIncludeResources.length > 0) {
-                getEverythingRevInclude(client, revIncludeResources, callback);
+                return getEverythingRevInclude(client, revIncludeResources);
             } else {
-                getEverythingRevInclude(client, supportedResources, callback);
+                return getEverythingRevInclude(client, supportedResources);
             }
 
         }
@@ -45,10 +45,10 @@ function getPatientRecord(client, callback) {
  * Uses the $everything operation.  The server takes care of constructing the bundle that gets returned, so
  * it is generally not possible to know how it is deciding what resources to send.
  */
-function getEverything(client, callback) {
-    client.request(`/Patient/${client.patient.id}/$everything`, {flat: true, pageLimit:0}).then((bundle)=>{
-        callback("patientRecord", bundle);
-    })
+function getEverything(client) {
+    return client.request(`/Patient/${client.patient.id}/$everything`, {flat: true, pageLimit:0}).then((bundle)=>{
+        return bundle;
+    });
 
 }
 
@@ -57,7 +57,7 @@ function getEverything(client, callback) {
  * Which resources it queries is dependent on info available in the Capability Statement, and
  * it only provides a one layer deep search, so the results might be different from $everything.
  */
-function getEverythingManually(client, supportedResources, callback) {
+function getEverythingManually(client, supportedResources) {
     supportedResources.push("Patient:_id");
     const requests = [];
     supportedResources.forEach((resource)=>{
@@ -68,13 +68,14 @@ function getEverythingManually(client, supportedResources, callback) {
             }
         }).catch((error)=>{
             console.log(`failed to fetch ${resource}`)
+            console.error(error);
         });
         requests.push(request);
     });
 
-    Promise.all(requests).then((results) => {
+    return Promise.all(requests).then((results) => {
         const bundle = results.filter((x)=>{return x}).flat();
-        callback("patientRecord", bundle);
+        return bundle;
     })
 
 }
@@ -84,16 +85,19 @@ function getEverythingManually(client, supportedResources, callback) {
  * The list of resources it checks is retrieved from the Capability Statement.  It is slightly better than the manual
  * method since it does everything in one request.
  */
-function getEverythingRevInclude(client, supportedResources, callback) {
+function getEverythingRevInclude(client, supportedResources) {
     const query = supportedResources.join("&_revinclude=");
     if (query) {
-        client.request(`/Patient?_id=${client.patient.id}&_revinclude=${query}`, {flat: true}).then((result)=>{
-            callback("patientRecord", result);
+        return client.request(`/Patient?_id=${client.patient.id}&_revinclude=${query}`, {flat: true}).then((result)=>{
+            return result;
         }).catch((error) =>{
-            getEverythingManually(client, supportedResources, callback);
+            console.log("Reverse Include query failed, manually fetching resources instead.");
+            console.error(error);
+            getEverythingManually(client, supportedResources);
         });
     } else {
-        getEverythingManually(client, RESOURCES, callback);
+        console.log("Cannot use reverse includes, retrieving all resources manually from predefined list");
+        return getEverythingManually(client, ALL_RESOURCES_PATIENT_REFERENCE);
     }
 
 }
