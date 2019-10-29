@@ -32,9 +32,12 @@ function getPatientRecord(client) {
 
             })
             if (revIncludeResources.length > 0) {
-                return getEverythingRevInclude(client, revIncludeResources);
-            } else {
-                return getEverythingRevInclude(client, supportedResources);
+                return getEverythingRevInclude(client, revIncludeResources, getEverythingManually);
+            } else if (supportedResources.length > 0){
+                return getEverythingRevInclude(client, supportedResources, getEverythingManually);
+            }else {
+                console.log("Cannot use reverse includes, retrieving all resources manually from predefined list");
+                return getEverythingManually(client, ALL_RESOURCES_PATIENT_REFERENCE);
             }
 
         }
@@ -85,21 +88,15 @@ function getEverythingManually(client, supportedResources) {
  * The list of resources it checks is retrieved from the Capability Statement.  It is slightly better than the manual
  * method since it does everything in one request.
  */
-function getEverythingRevInclude(client, supportedResources) {
+function getEverythingRevInclude(client, supportedResources, onError) {
     const query = supportedResources.join("&_revinclude=");
-    if (query) {
         return client.request(`/Patient?_id=${client.patient.id}&_revinclude=${query}`, {flat: true}).then((result)=>{
             return result;
         }).catch((error) =>{
             console.log("Reverse Include query failed, manually fetching resources instead.");
             console.error(error);
-            getEverythingManually(client, supportedResources);
+            onError(client, supportedResources);
         });
-    } else {
-        console.log("Cannot use reverse includes, retrieving all resources manually from predefined list");
-        return getEverythingManually(client, ALL_RESOURCES_PATIENT_REFERENCE);
-    }
-
 }
 
 export {
