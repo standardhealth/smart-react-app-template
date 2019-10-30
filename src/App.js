@@ -1,4 +1,7 @@
 import React from 'react';
+import Header from 'components/Header';
+import Navigation from 'components/Navigation';
+import logo from './logo.svg';
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -9,9 +12,15 @@ const getPatientName = (name = [] ) => {
 const App = ({ patient }) => {
   return (
     <div >
-      <h1> {getPatientName(patient.name)} </h1>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"/>
+      <Header logo={logo} title='SMART App'/>
+      <Navigation name={getPatientName(patient.name)}
+                  birthDate={patient.birthDate}
+                  gender={patient.gender}
+                  address={patient.address} />
     </div>
   );
-}
+};
 
 export default App;

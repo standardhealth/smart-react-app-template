@@ -1,0 +1,13 @@
+.selection {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  max-width: 60%;
+
+  select {
+    width: 100%;
+    font-size: 1.5em;
+    border: gray;
+  }
+}

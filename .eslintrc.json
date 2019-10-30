@@ -1,0 +1,33 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "extends": [
+    "react-app",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/indent": ["warn", 2, { "FunctionDeclaration": {"parameters": "first"},
+                                               "FunctionExpression":  {"parameters": "first"},
+                                               "CallExpression": {"arguments": "first"},
+                                               "ObjectExpression": "first",
+                                               "ArrayExpression": "first",
+                                               "ignoredNodes": [ "JSXAttribute"]}],
+    "brace-style": "off",
+    "@typescript-eslint/brace-style": "error",
+    "func-call-spacing": "off",
+    "@typescript-eslint/func-call-spacing": "error",
+    "@typescript-eslint/no-require-imports": "error",
+    "@typescript-eslint/no-unnecessary-qualifier": "error",
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["warn", "single"],
+    "semi": "off",
+    "@typescript-eslint/semi": ["error"],
+    "max-len": ["warn", {"code":  100}]
+  }
+}

@@ -13,3 +13,24 @@ The rest of your application can be built out in `App.js` and beyond.  If additi
     - Launch `http://localhost:3000`
     - Select a practitioner and a patient
     - Page will load with name of selected patient displayed.
+    
+## Running tests
+
+Tests can be run by executing:
+```shell script
+yarn test
+```
+
+## Running the code linter
+
+Code liniting can be run by executing:
+
+```shell script
+yarn lint
+```
+
+Some issues can be automatically corrected with:
+
+```shell script
+yarn lint-fix
+```
