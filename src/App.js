@@ -29,11 +29,24 @@ class App extends React.Component {
 
 
     render() {
+        const {patient} = this.props;
         return (
-            <div >
-              <h1> {getPatientName(this.props.patient.name)} </h1>
-              {`Fetched ${this.state.patientRecord.length} resources`}
+            <div>
+                <div >
+                <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                    rel="stylesheet"/>
+                <Header logo={logo} title='SMART App'/>
+                <Navigation name={getPatientName(patient.name)}
+                            birthDate={patient.birthDate}
+                            gender={patient.gender}
+                            address={patient.address} />
             </div>
+                <div >
+                <h1> {getPatientName(patient.name)} </h1>
+                {`Fetched ${this.state.patientRecord.length} resources`}
+                </div>
+            </div>
+
           );
     }
 
