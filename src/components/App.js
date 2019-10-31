@@ -1,8 +1,22 @@
 import React from 'react';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons';
+import {
+  faUserCircle,
+  faChevronLeft
+} from '@fortawesome/free-solid-svg-icons';
+
 import Header from 'components/Header';
 import Navigation from 'components/Navigation';
-import logo from './logo.svg';
-import {getPatientRecord} from './util/fhir_extract';
+import logo from '../logo.svg';
+import { getPatientRecord } from './util/fhir_extract';
+
+// set up fontawesome library
+library.add(
+  fab,
+  faUserCircle,
+  faChevronLeft
+);
 
 // get name from resource
 const getPatientName = (name = [] ) => {

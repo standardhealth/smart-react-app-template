@@ -1,37 +1,38 @@
-.snapshot {
+@import '../../styles/variables';
+
+.patient-snapshot {
   display: flex;
   align-items: center;
-}
 
-.material-icons.snapshot_photo {
-  font-size: 400%;
-  color: #4a4a4a;
-}
+  &__info {
+    display: flex;
+    flex-direction: column;
 
-.snapshot_list {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 0;
-
-  div > dd,dt {
-    display: inline;
-    margin: 0;
-    font-size: 0.8em;
+    .patient-name {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 2px;
+    }
   }
-}
 
-.snapshot_info {
-  display: flex;
-  flex-direction: column;
-
-  h3 {
-    margin: 0;
-    align-self: flex-start;
+  &__photo {
+    font-size: 5em;
+    margin-right: 10px;
   }
-}
 
-.snapshot_field {
-  flex-basis: 34%;
-  margin: 0;
+  &__list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0;
+    color: $gray-lighter;
+    font-weight: 500;
+
+    div > dd,
+    dt {
+      display: inline;
+      margin: 0;
+      font-size: 0.8em;
+    }
+  }
 }

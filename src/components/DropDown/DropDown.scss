@@ -1,13 +1,16 @@
-.selection {
+.dropdown {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 1;
-  max-width: 60%;
+  width: 100%;
+
+  label {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
 
   select {
-    width: 100%;
-    font-size: 1.5em;
-    border: gray;
+    font-size: 1.2em;
+    border: 0;
   }
 }

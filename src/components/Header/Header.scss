@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .header {
-  background-color: #4a4a4a;
+  background-color: $gray;
   height: 40vh;
   display: flex;
   justify-content: space-between;

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { FC } from 'react';
+
 import './Header.scss';
 
-type HeaderProps = {
+interface HeaderProps {
   title: string;
   logo: string;
-};
+}
 
 /**
  * Basic Header Element.
@@ -12,7 +13,7 @@ type HeaderProps = {
  * @param props - contains the title and logo to be used in the header
  * @constructor
  */
-const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
+const Header: FC<HeaderProps> = (props: HeaderProps) => {
   return (
     <header className="header">
       <img src={props.logo} className="header__logo" alt="logo" />

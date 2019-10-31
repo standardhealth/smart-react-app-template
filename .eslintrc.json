@@ -28,6 +28,6 @@
     "@typescript-eslint/quotes": ["warn", "single"],
     "semi": "off",
     "@typescript-eslint/semi": ["error"],
-    "max-len": ["warn", {"code":  100}]
+    "max-len": ["warn", {"code":  120}]
   }
 }

@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import './PatientSnapshot.scss';
 
 interface Props {
@@ -15,16 +17,18 @@ interface Props {
  * @param patient - The patient used in the snapshot
  * @constructor
  */
-const PatientSnapshot: React.FC<Props> = (patient: Props) => {
-  return(
-    <div className="snapshot">
-      <i className="material-icons snapshot_photo">account_circle</i>
-      <div className="snapshot_info">
-        <h3>{patient.name}</h3>
-        <dl className="snapshot_list">
-          <SnapshotField label='DOB: ' value={patient.birthDate}/>
-          <SnapshotField label='Admin. Sex: ' value={patient.gender}/>
-          <SnapshotField label='Location: ' value={patient.address}/>
+const PatientSnapshot: FC<Props> = (patient: Props) => {
+  return (
+    <div className="patient-snapshot">
+      <FontAwesomeIcon icon="user-circle" className="patient-snapshot__photo" />
+
+      <div className="patient-snapshot__info">
+        <div className="patient-name">{patient.name}</div>
+
+        <dl className="patient-snapshot__list">
+          <SnapshotField label="DOB: " value={patient.birthDate}/>
+          <SnapshotField label="Admin. Sex: " value={patient.gender}/>
+          <SnapshotField label="Location: " value={patient.address}/>
         </dl>
       </div>
     </div>
@@ -43,11 +47,11 @@ interface FieldProps {
  * @param value - the value of the field
  * @constructor
  */
-const SnapshotField: React.FC<FieldProps> = ({label, value}: FieldProps) => {
-  return(
+const SnapshotField: React.FC<FieldProps> = ({ label, value }: FieldProps) => {
+  return (
     <div>
-      <dt> {label} </dt>
-      <dd> {value} </dd>
+      <dt>{label}</dt>
+      <dd>{value}</dd>
     </div>
   );
 };

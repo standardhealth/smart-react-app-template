@@ -1,22 +1,20 @@
-import React, {ChangeEvent} from 'react';
+import React, { FC, useCallback } from 'react';
+import Select from 'react-select';
+
 import './DropDown.scss';
 
 interface Props {
   label?: string;
   id: string;
-  name: string;
-  options: Array<Options>;
-  onChange?: OnChangeCallback;
+  options: Array<Option>;
+  onChange?: (value: Option | ReadonlyArray<Option> | null) => void;
+  selectedValue: Option | ReadonlyArray<Option> | null;
 }
 
-interface Options {
+type Option = {
+  label: string;
   value: string;
-  text: string;
-}
-
-interface OnChangeCallback {
-  (event: ChangeEvent<HTMLSelectElement>): void;
-}
+};
 
 /**
  * Basic dropdown input
@@ -24,18 +22,27 @@ interface OnChangeCallback {
  * @param options - the text and associated value for the dropdown options
  * @param label - Label for the drop down element
  * @param id - The id of the select element
- * @param name - the name of the select option
  * @param onChange - the callback called when the selection is changed
  * @constructor
  */
-const DropDown: React.FC<Props> = ({options, label, id, name, onChange}: Props) => {
-  return(
-    <div className='selection'>
+const DropDown: FC<Props> = ({ options, label, id, onChange, selectedValue }: Props) => {
+  const onChangeCallback =
+    useCallback(
+      (value: Option | ReadonlyArray<Option> | null | undefined) => {
+        if (onChange) onChange(value == null ? null : value);
+      },
+      [onChange]
+    );
+
+  return (
+    <div className="dropdown">
       <label htmlFor={id}>{label}</label>
-      <select id={id} name={name} onChange={onChange}>
-        {options.map((option, index) => <option value={option.value}
-                                                key={index}>{option.text}</option>)}
-      </select>
+
+      <Select
+        selectValue={selectedValue}
+        onChange={onChangeCallback}
+        options={options}
+      />
     </div>
   );
 };
