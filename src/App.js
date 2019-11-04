@@ -3,7 +3,13 @@ import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import logo from './logo.svg';
 import { getPatientRecord } from 'util/fhir_extract';
-import { PatientVisualizer } from 'fhir-visualizers';
+import {
+  AllergiesVisualizer, CarePlansVisualizer,
+  ConditionsVisualizer, EncountersVisualizer, ImmunizationsVisualizer, MedicationsVisualizer,
+  ObservationsVisualizer,
+  PatientVisualizer, ProceduresVisualizer,
+  ReportsVisualizer
+} from 'fhir-visualizers';
 
 // get name from resource
 const getPatientName = (name = [] ) => {
@@ -28,6 +34,9 @@ class App extends React.Component {
     this.setState({[elementName]: text});
   };
 
+  getResourceByType = (resourceType) => {
+    return this.state.patientRecord.filter(resource => resource.resourceType == resourceType);
+  };
 
   render() {
     const {patient} = this.props;
@@ -47,6 +56,15 @@ class App extends React.Component {
           {`Fetched ${this.state.patientRecord.length} resources`}
         </div>
         <PatientVisualizer patient={patient}/>
+        <ConditionsVisualizer rows = {this.getResourceByType('Condition')}/>
+        <ObservationsVisualizer rows = {this.getResourceByType('Observation')} />
+        <ReportsVisualizer rows = {this.getResourceByType('DiagnosticReport')} />
+        <MedicationsVisualizer rows = {this.getResourceByType('MedicationRequest')} />
+        <AllergiesVisualizer rows = {this.getResourceByType('AllergyIntolerance')} />
+        <CarePlansVisualizer rows = {this.getResourceByType('CarePlan')} />
+        <ProceduresVisualizer rows = {this.getResourceByType('Procedure')} />
+        <EncountersVisualizer rows = {this.getResourceByType('Encounter')} />
+        <ImmunizationsVisualizer rows = {this.getResourceByType('Immunization')} />
       </div>
     );
   }
