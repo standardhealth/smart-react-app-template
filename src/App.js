@@ -3,13 +3,9 @@ import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import logo from './logo.svg';
 import { getPatientRecord } from 'util/fhir_extract';
-import {
-  AllergiesVisualizer, CarePlansVisualizer,
-  ConditionsVisualizer, EncountersVisualizer, ImmunizationsVisualizer, MedicationsVisualizer,
-  ObservationsVisualizer,
-  PatientVisualizer, ProceduresVisualizer,
-  ReportsVisualizer
-} from 'fhir-visualizers';
+import { AllergiesVisualizer, CarePlansVisualizer, ConditionsVisualizer, EncountersVisualizer,
+  ImmunizationsVisualizer, MedicationsVisualizer, ObservationsVisualizer, PatientVisualizer,
+  ProceduresVisualizer, ReportsVisualizer} from 'fhir-visualizers';
 
 // get name from resource
 const getPatientName = (name = [] ) => {
