@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import './Header.scss';
 
@@ -18,7 +19,7 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
     <header className="header">
       <img src={props.logo} className="header__logo" alt="logo" />
       <h1 className="header__title header-item">{props.title}</h1>
-      <i className="material-icons md-light header-right">settings_applications</i>
+      <FontAwesomeIcon icon="cog" className="md-light header-right" />
     </header>
   );
 };

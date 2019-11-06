@@ -16,33 +16,19 @@ type Option = {
   value: string;
 };
 
-/**
- * Basic dropdown input
- *
- * @param options - the text and associated value for the dropdown options
- * @param label - Label for the drop down element
- * @param id - The id of the select element
- * @param onChange - the callback called when the selection is changed
- * @constructor
- */
 const DropDown: FC<Props> = ({ options, label, id, onChange, selectedValue }: Props) => {
-  const onChangeCallback =
-    useCallback(
-      (value: Option | ReadonlyArray<Option> | null | undefined) => {
-        if (onChange) onChange(value == null ? null : value);
-      },
-      [onChange]
-    );
+  const onChangeCallback = useCallback(
+    (value: Option | ReadonlyArray<Option> | null | undefined) => {
+      if (onChange) onChange(value == null ? null : value);
+    },
+    [onChange]
+  );
 
   return (
     <div className="dropdown">
       <label htmlFor={id}>{label}</label>
 
-      <Select
-        selectValue={selectedValue}
-        onChange={onChangeCallback}
-        options={options}
-      />
+      <Select selectValue={selectedValue} onChange={onChangeCallback} options={options} />
     </div>
   );
 };

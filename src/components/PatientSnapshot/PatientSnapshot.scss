@@ -21,18 +21,11 @@
   }
 
   &__list {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
     margin: 0;
     color: $gray-lighter;
     font-weight: 500;
-
-    div > dd,
-    dt {
-      display: inline;
-      margin: 0;
-      font-size: 0.8em;
-    }
+    list-style: none;
+    padding: 0;
+    font-size: 0.8em;
   }
 }

@@ -1,57 +1,38 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { usePatient } from '../PatientProvider';
 
 import './PatientSnapshot.scss';
 
-interface Props {
-  name: string;
-  birthDate: string;
-  gender: string;
-  address: string;
-  photo?: string;
-}
+const getPatientName = (name: Array<fhir.HumanName> = []): string => {
+  const entry = name.find(n => n.use === 'official') || name[0];
+  return entry ? `${(entry.given || []).join(' ')} ${entry.family}` : 'No name';
+};
 
-/**
- * A snapshot of the patient's information.
- *
- * @param patient - The patient used in the snapshot
- * @constructor
- */
-const PatientSnapshot: FC<Props> = (patient: Props) => {
+const getPatientAddress = (address: Array<fhir.Address> = []): string => {
+  const entry = address[0];
+  return entry ? [entry.city, entry.state].filter(item => !!item).join(', ') : 'No Address';
+};
+
+const PatientSnapshot: FC<{}> = () => {
+  const patient = usePatient();
+
+  const name = useMemo(() => getPatientName(patient.name), [patient]);
+  const address = useMemo(() => getPatientAddress(patient.address), [patient]);
+
   return (
     <div className="patient-snapshot">
       <FontAwesomeIcon icon="user-circle" className="patient-snapshot__photo" />
 
       <div className="patient-snapshot__info">
-        <div className="patient-name">{patient.name}</div>
+        <div className="patient-name">{name}</div>
 
-        <dl className="patient-snapshot__list">
-          <SnapshotField label="DOB: " value={patient.birthDate}/>
-          <SnapshotField label="Admin. Sex: " value={patient.gender}/>
-          <SnapshotField label="Location: " value={patient.address}/>
-        </dl>
+        <ul className="patient-snapshot__list">
+          <li>DOB: {patient.birthDate}</li>
+          <li>Admin. Sex: {patient.gender}</li>
+          <li>Location: {address}</li>
+        </ul>
       </div>
-    </div>
-  );
-};
-
-interface FieldProps {
-  label: string;
-  value: string;
-}
-
-/**
- * A field and its description
- *
- * @param label - the field text
- * @param value - the value of the field
- * @constructor
- */
-const SnapshotField: React.FC<FieldProps> = ({ label, value }: FieldProps) => {
-  return (
-    <div>
-      <dt>{label}</dt>
-      <dd>{value}</dd>
     </div>
   );
 };
