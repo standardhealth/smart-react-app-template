@@ -24,3 +24,6 @@ export default class ConfigManager {
     }
   }
 }
+
+const instance = new ConfigManager();
+export { instance as config };
