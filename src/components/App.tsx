@@ -5,7 +5,7 @@ import Navigation from 'components/Navigation';
 
 import logo from '../logo.svg';
 import { getPatientRecord } from '../utils/fhirExtract';
-import { FHIRCLientProvider } from './FHIRClient';
+import { FHIRClientProvider } from './FHIRClient';
 import { PatientProvider } from './PatientProvider';
 
 interface AppProps {
@@ -22,7 +22,7 @@ const App: FC<AppProps> = ({ client }) => {
   }, [client]);
 
   return (
-    <FHIRCLientProvider client={client}>
+    <FHIRClientProvider client={client}>
       <PatientProvider>
         <div>
           <Header logo={logo} title="SMART App" />
@@ -31,7 +31,7 @@ const App: FC<AppProps> = ({ client }) => {
 
         <div>{`Fetched ${patientRecords.length} resources`}</div>
       </PatientProvider>
-    </FHIRCLientProvider>
+    </FHIRClientProvider>
   );
 };
 

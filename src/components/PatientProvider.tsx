@@ -22,4 +22,5 @@ export const PatientProvider: FC<PatientProviderProps> = ({ children }) => {
   );
 };
 
-export const usePatient = (): fhir.Patient => useContext(PatientContext)!; // eslint-disable-line @typescript-eslint/no-non-null-assertion
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const usePatient = (): fhir.Patient => useContext(PatientContext)!;

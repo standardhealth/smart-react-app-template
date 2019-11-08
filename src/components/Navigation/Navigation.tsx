@@ -11,7 +11,10 @@ type Option = {
   value: string;
 };
 
-const pathwayOptions = [{ label: 'Medications', value: 'meds' }, { label: 'Chart', value: 'chart' }];
+const pathwayOptions = [
+  { label: 'Medications', value: 'meds' },
+  { label: 'Chart', value: 'chart' }
+];
 
 const Navigation: FC<{}> = () => {
   const [pathway, setPathway] = useState<Option | ReadonlyArray<Option> | null>(null);

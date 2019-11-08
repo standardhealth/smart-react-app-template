@@ -13,7 +13,10 @@ const Header: FC<HeaderProps> = (props: HeaderProps) => {
     <header className={classes.header}>
       <img src={props.logo} alt="logo" />
       <h1>{props.title}</h1>
-      <FontAwesomeIcon icon="cog" className={`${classes['settings-logo']} ${classes['header-right']}`} />
+      <FontAwesomeIcon
+        icon="cog"
+        className={`${classes['settings-logo']} ${classes['header-right']}`}
+      />
     </header>
   );
 };

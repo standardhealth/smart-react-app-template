@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import FHIR from 'fhirclient';
 
 import App from './components/App.tsx';
-import './styles/App.scss';
+import './styles/index.scss';
 import './utils/fontawesomeLibrary';
 
 const rootElement = document.getElementById('root');

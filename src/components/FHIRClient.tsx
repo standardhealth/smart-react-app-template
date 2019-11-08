@@ -5,10 +5,10 @@ interface FHIRClientProviderProps {
   children: ReactNode;
 }
 
-export const FHIRCLientContext = createContext(null);
+export const FHIRClientContext = createContext(null);
 
-export const FHIRCLientProvider: FC<FHIRClientProviderProps> = ({ client, children }) => (
-  <FHIRCLientContext.Provider value={client}>{children}</FHIRCLientContext.Provider>
+export const FHIRClientProvider: FC<FHIRClientProviderProps> = ({ client, children }) => (
+  <FHIRClientContext.Provider value={client}>{children}</FHIRClientContext.Provider>
 );
 
-export const useFHIRClient = (): any => useContext(FHIRCLientContext);
+export const useFHIRClient = (): any => useContext(FHIRClientContext);
