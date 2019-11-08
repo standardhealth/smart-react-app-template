@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Navigation from '../Navigation';
 import MockedPatientProvider from 'testUtils/MockedPatientProvider';
 
@@ -11,9 +11,12 @@ describe('<Navigation />', () => {
       </MockedPatientProvider>
     );
 
-  it('renders a visible header title and logo', () => {
-    const { getByText } = renderComponent();
+  it('can select a pathway', () => {
+    const { getByLabelText, getByText } = renderComponent();
 
-    // expect(getByText(name)).toBeVisible();
+    fireEvent.keyDown(getByLabelText('Pathway:', { selector: 'input' }), { keyCode: 40 });
+    fireEvent.click(getByText('Medications'));
+
+    expect(getByText('Medications')).toBeInTheDocument();
   });
 });
