@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { usePatient } from '../PatientProvider';
 
-import './PatientSnapshot.scss';
+import classes from './PatientSnapshot.module.scss';
 
 const getPatientName = (name: Array<fhir.HumanName> = []): string => {
   const entry = name.find(n => n.use === 'official') || name[0];
@@ -21,13 +21,13 @@ const PatientSnapshot: FC<{}> = () => {
   const address = useMemo(() => getPatientAddress(patient.address), [patient]);
 
   return (
-    <div className="patient-snapshot">
-      <FontAwesomeIcon icon="user-circle" className="patient-snapshot__photo" />
+    <div className={classes['patient-snapshot']}>
+      <FontAwesomeIcon icon="user-circle" className={classes['patient-snapshot__photo']} />
 
-      <div className="patient-snapshot__info">
-        <div className="patient-name">{name}</div>
+      <div className={classes['patient-snapshot__info']}>
+        <div className={classes['patient-name']}>{name}</div>
 
-        <ul className="patient-snapshot__list">
+        <ul className={classes['patient-snapshot__list']}>
           <li>DOB: {patient.birthDate}</li>
           <li>Admin. Sex: {patient.gender}</li>
           <li>Location: {address}</li>

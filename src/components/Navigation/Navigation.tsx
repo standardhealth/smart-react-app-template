@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import PatientSnapshot from 'components/PatientSnapshot';
 import DropDown from 'components/DropDown';
 
-import './Navigation.scss';
+import classes from './Navigation.module.scss';
 
 type Option = {
   label: string;
@@ -21,14 +21,14 @@ const Navigation: FC<{}> = () => {
   };
 
   return (
-    <nav className="navigation">
-      <div className="navigation__left-panel">
-        <FontAwesomeIcon icon="chevron-left" className="navigation__back" />
+    <nav className={classes.navigation}>
+      <div className={classes['navigation__left-panel']}>
+        <FontAwesomeIcon icon="chevron-left" className={classes.navigation__back} />
 
         <PatientSnapshot />
       </div>
 
-      <div className="navigation__right-panel">
+      <div className={classes['navigation__right-panel']}>
         <DropDown
           label="Pathway:"
           id="patient-view"
