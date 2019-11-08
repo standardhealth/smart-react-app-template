@@ -1,4 +1,4 @@
-export default class ConfigManager {
+export class ConfigManager {
   constructor(config = {}) {
     this.config = global.CONFIG ? { ...global.CONFIG , ...config } : { ...config };
   }
@@ -25,5 +25,5 @@ export default class ConfigManager {
   }
 }
 
-const instance = new ConfigManager();
-export { instance as config };
+const config = new ConfigManager();
+export default config;

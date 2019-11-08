@@ -3,7 +3,7 @@ import Header from 'components/Header';
 import Navigation from 'components/Navigation';
 import logo from './logo.svg';
 import {getPatientRecord} from 'util/fhir_extract';
-import {config} from 'util/ConfigManager';
+import config from 'util/ConfigManager';
 // get name from resource
 const getPatientName = (name = [] ) => {
   const entry = name.find(n => n.use === 'official') || name[0];
