@@ -30,7 +30,7 @@ const Navigation: FC<{}> = () => {
 
       <div className="navigation__right-panel">
         <DropDown
-          label="Pathway: "
+          label="Pathway:"
           id="patient-view"
           options={pathwayOptions}
           selectedValue={pathway}

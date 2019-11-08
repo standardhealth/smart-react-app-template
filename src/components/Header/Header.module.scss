@@ -15,19 +15,20 @@
 
   h1 {
     font: 1.5em "Avenir Next";
-    color: whitesmoke;
+    color: $white;
   }
 
   img {
     height: 80%;
   }
-}
 
-.md-light {
-  color: whitesmoke;
-  font-size: 200%;
-}
+  .settings-logo {
+    color: $white;
+    font-size: 1.2em;
+    margin-right: 20px;
+  }
 
-.header-right {
-  margin-left: auto;
+  .header-right {
+    margin-left: auto;
+  }
 }

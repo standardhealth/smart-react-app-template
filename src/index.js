@@ -4,6 +4,7 @@ import FHIR from 'fhirclient';
 
 import App from './components/App.tsx';
 import './styles/App.scss';
+import './utils/fontawesomeLibrary';
 
 const rootElement = document.getElementById('root');
 

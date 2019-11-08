@@ -1,7 +1,7 @@
 import React, { FC, useCallback } from 'react';
 import Select from 'react-select';
 
-import './DropDown.scss';
+import classes from './DropDown.module.scss';
 
 interface Props {
   label?: string;
@@ -25,10 +25,17 @@ const DropDown: FC<Props> = ({ options, label, id, onChange, selectedValue }: Pr
   );
 
   return (
-    <div className="dropdown">
+    <div className={classes.dropdown}>
       <label htmlFor={id}>{label}</label>
 
-      <Select selectValue={selectedValue} onChange={onChangeCallback} options={options} />
+      <Select
+        classNamePrefix="DropDown"
+        inputId={id}
+        selectValue={selectedValue}
+        onChange={onChangeCallback}
+        options={options}
+        aria-label={label}
+      />
     </div>
   );
 };
