@@ -1,5 +1,20 @@
 import { ALL_RESOURCES_PATIENT_REFERENCE } from './patient';
 
+import { mappers } from 'fhir-mapper';
+
+// TODO: once we have config make this configurable
+const mapperName = 'SyntheaToV09';
+const MapperClass = mappers[mapperName];
+const mapperInstance = MapperClass ? new MapperClass() : null;
+
+const applyMapping = (bundle) => {
+  if (mapperInstance && bundle)
+  {
+    bundle = mapperInstance.execute(bundle);
+  }
+  return bundle;
+}
+
 /**
  * There are slight discrepencies between the $everything, revinclude, and manual methods that affect the resources that might be returned
  * @param {Object} client - the fhir client
@@ -12,7 +27,7 @@ function getPatientRecord(client) {
       )
     ) {
       // supports patient everything
-      return getEverything(client);
+      return getEverything(client).then(bundle => applyMapping(bundle));
     } else {
       console.log('Cannot use $everything, using reverse includes instead');
       const supportedResources = [];
@@ -39,12 +54,12 @@ function getPatientRecord(client) {
         }
       });
       if (revIncludeResources.length > 0) {
-        return getEverythingRevInclude(client, revIncludeResources, getEverythingManually);
+        return getEverythingRevInclude(client, revIncludeResources, getEverythingManually).then(bundle => applyMapping(bundle));
       } else if (supportedResources.length > 0) {
-        return getEverythingRevInclude(client, supportedResources, getEverythingManually);
+        return getEverythingRevInclude(client, supportedResources, getEverythingManually).then(bundle => applyMapping(bundle));
       } else {
         console.log('Cannot use reverse includes, retrieving all resources manually from predefined list');
-        return getEverythingManually(client, ALL_RESOURCES_PATIENT_REFERENCE);
+        return getEverythingManually(client, ALL_RESOURCES_PATIENT_REFERENCE).then(bundle => applyMapping(bundle));
       }
     }
   });
