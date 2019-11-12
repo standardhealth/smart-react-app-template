@@ -4307,9 +4307,9 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
-"fhir-visualizers@https://github.com/synthetichealth/fhir-visualizers#package":
+fhir-visualizers@synthetichealth/fhir-visualizers:
   version "0.0.1"
-  resolved "https://github.com/synthetichealth/fhir-visualizers#e7f829a71b162d1f62890d221a0a5995f82153ee"
+  resolved "https://codeload.github.com/synthetichealth/fhir-visualizers/tar.gz/5b02cc2bd595c4f8c5e821292c7f5a2dd8806a43"
   dependencies:
     moment "^2.24.0"
 
