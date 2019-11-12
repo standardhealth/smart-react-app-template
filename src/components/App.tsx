@@ -7,6 +7,7 @@ import logo from '../logo.svg';
 import { getPatientRecord } from '../utils/fhirExtract';
 import { FHIRClientProvider } from './FHIRClient';
 import { PatientProvider } from './PatientProvider';
+import PatientRecord from './PatientRecord/PatientRecord';
 
 interface AppProps {
   client: any; // TODO: fhirclient.Client
@@ -30,6 +31,7 @@ const App: FC<AppProps> = ({ client }) => {
         </div>
 
         <div>{`Fetched ${patientRecords.length} resources`}</div>
+        <PatientRecord resources={patientRecords} />
       </PatientProvider>
     </FHIRClientProvider>
   );
