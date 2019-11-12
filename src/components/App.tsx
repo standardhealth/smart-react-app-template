@@ -8,6 +8,7 @@ import { getPatientRecord } from '../utils/fhirExtract';
 import { FHIRClientProvider } from './FHIRClient';
 import { PatientProvider } from './PatientProvider';
 import PatientRecord from './PatientRecord/PatientRecord';
+import config from 'utils/ConfigManager';
 
 interface AppProps {
   client: any; // TODO: fhirclient.Client
@@ -26,7 +27,7 @@ const App: FC<AppProps> = ({ client }) => {
     <FHIRClientProvider client={client}>
       <PatientProvider>
         <div>
-          <Header logo={logo} title="SMART App" />
+          <Header logo={logo} title={config.get('appName', 'SMART App')} />
           <Navigation />
         </div>
 
