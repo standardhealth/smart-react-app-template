@@ -16,10 +16,10 @@ import {
 
 type PatientRecordProps = {
   resources: ReadonlyArray<Record<string, any>>;
-}
+};
 
 const getResourceByType = (patientRecord: ReadonlyArray<any>, resourceType: string) => {
-  return patientRecord.filter(resource => resource.resourceType == resourceType);
+  return patientRecord.filter(resource => resource.resourceType === resourceType);
 };
 
 const PatientRecord: FC<PatientRecordProps> = ({ resources }) => {
