@@ -1,23 +1,22 @@
-import React from 'react';
-import './Header.scss';
+import React, { FC } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-type HeaderProps = {
+import classes from './Header.module.scss';
+
+interface HeaderProps {
   title: string;
   logo: string;
-};
+}
 
-/**
- * Basic Header Element.
- *
- * @param props - contains the title and logo to be used in the header
- * @constructor
- */
-const Header: React.FunctionComponent<HeaderProps> = (props: HeaderProps) => {
+const Header: FC<HeaderProps> = (props: HeaderProps) => {
   return (
-    <header className="header">
-      <img src={props.logo} className="header__logo" alt="logo" />
-      <h1 className="header__title header-item">{props.title}</h1>
-      <i className="material-icons md-light header-right">settings_applications</i>
+    <header className={classes.header}>
+      <img src={props.logo} alt="logo" />
+      <h1>{props.title}</h1>
+      <FontAwesomeIcon
+        icon="cog"
+        className={`${classes['settings-logo']} ${classes['header-right']}`}
+      />
     </header>
   );
 };

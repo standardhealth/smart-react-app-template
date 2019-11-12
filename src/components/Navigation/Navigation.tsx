@@ -1,57 +1,45 @@
-import React from 'react';
+import React, { FC, useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import PatientSnapshot from 'components/PatientSnapshot';
-import './Navigation.scss';
 import DropDown from 'components/DropDown';
 
-type Props = {
-  name: string;
-  birthDate: string;
-  gender: string;
-  address: Array<Address>;
+import classes from './Navigation.module.scss';
+
+type Option = {
+  label: string;
+  value: string;
 };
 
-interface Address {
-  city?: string;
-  state?: string;
-}
+const pathwayOptions = [
+  { label: 'Medications', value: 'meds' },
+  { label: 'Chart', value: 'chart' }
+];
 
-/***
- * Returns the first patient address provided as a string.
- *
- * @param address - The array of addresses for the patient
- * @returns The address presented as 'city, state'
- */
-const getPatientAddress = (address: Array<Address> = []): string => {
-  const entry = address[0];
-  return entry ? [entry.city, entry.state].filter(item => !!item).join(', ') : 'No Address';
-};
+const Navigation: FC<{}> = () => {
+  const [pathway, setPathway] = useState<Option | ReadonlyArray<Option> | null>(null);
 
-/**
- * Basic Navigation Element.
- *
- * Provides a back arrow, a snaphshot of the patient information, and a dropdown menu
- *
- * @param name - The patient's name
- * @param birthDate - The patient's date of birth
- * @param gender - The patient's gender
- * @param address - The patient's address
- * @constructor
- */
-const Navigation: React.FC<Props> = ({ name, birthDate, gender, address}) => {
+  const onChangeHandler = (pathway: Option | ReadonlyArray<Option> | null): void => {
+    setPathway(pathway);
+  };
+
   return (
-    <nav className='navigation'>
-      <div className='left-panel'>
-        <i className="material-icons">keyboard_arrow_left</i>
-        <PatientSnapshot name={name}
-                         birthDate={birthDate}
-                         gender={gender}
-                         address={getPatientAddress(address)} />
+    <nav className={classes.navigation}>
+      <div className={classes['navigation__left-panel']}>
+        <FontAwesomeIcon icon="chevron-left" className={classes.navigation__back} />
+
+        <PatientSnapshot />
       </div>
-      <DropDown label='Selection: '
-                id='patient-view'
-                name='available views'
-                options={[{text: 'Medications', value: 'meds'},
-                          { text: 'Chart', value: 'chart'}]}/>
+
+      <div className={classes['navigation__right-panel']}>
+        <DropDown
+          label="Pathway:"
+          id="patient-view"
+          options={pathwayOptions}
+          selectedValue={pathway}
+          onChange={onChangeHandler}
+        />
+      </div>
     </nav>
   );
 };

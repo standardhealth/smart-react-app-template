@@ -1,5 +1,7 @@
+@import '../../styles/variables';
+
 .header {
-  background-color: #4a4a4a;
+  background-color: $gray;
   height: 40vh;
   display: flex;
   justify-content: space-between;
@@ -13,7 +15,7 @@
 
   h1 {
     font: 1.5em "Avenir Next";
-    color: whitesmoke;
+    color: $white;
   }
 
   img {
@@ -21,9 +23,10 @@
   }
 }
 
-.material-icons.md-light {
-  color: whitesmoke;
-  font-size: 200%;
+.settings-logo {
+  color: $white;
+  font-size: 1.2em;
+  margin-right: 20px;
 }
 
 .header-right {

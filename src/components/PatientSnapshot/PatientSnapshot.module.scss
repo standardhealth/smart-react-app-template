@@ -1,0 +1,31 @@
+@import '../../styles/variables';
+
+.patient-snapshot {
+  display: flex;
+  align-items: center;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    .patient-name {
+      font-weight: 700;
+      font-size: 1.1em;
+      margin-bottom: 2px;
+    }
+  }
+
+  &__photo {
+    font-size: 5em;
+    margin-right: 10px;
+  }
+
+  &__list {
+    margin: 0;
+    color: $gray-lighter;
+    font-weight: 500;
+    list-style: none;
+    padding: 0;
+    font-size: 0.8em;
+  }
+}

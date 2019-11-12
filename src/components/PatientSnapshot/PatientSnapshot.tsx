@@ -1,53 +1,38 @@
-import React from 'react';
-import './PatientSnapshot.scss';
+import React, { FC, useMemo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { usePatient } from '../PatientProvider';
 
-interface Props {
-  name: string;
-  birthDate: string;
-  gender: string;
-  address: string;
-  photo?: string;
-}
+import classes from './PatientSnapshot.module.scss';
 
-/**
- * A snapshot of the patient's information.
- *
- * @param patient - The patient used in the snapshot
- * @constructor
- */
-const PatientSnapshot: React.FC<Props> = (patient: Props) => {
-  return(
-    <div className="snapshot">
-      <i className="material-icons snapshot_photo">account_circle</i>
-      <div className="snapshot_info">
-        <h3>{patient.name}</h3>
-        <dl className="snapshot_list">
-          <SnapshotField label='DOB: ' value={patient.birthDate}/>
-          <SnapshotField label='Admin. Sex: ' value={patient.gender}/>
-          <SnapshotField label='Location: ' value={patient.address}/>
-        </dl>
-      </div>
-    </div>
-  );
+const getPatientName = (name: Array<fhir.HumanName> = []): string => {
+  const entry = name.find(n => n.use === 'official') || name[0];
+  return entry ? `${(entry.given || []).join(' ')} ${entry.family}` : 'No name';
 };
 
-interface FieldProps {
-  label: string;
-  value: string;
-}
+const getPatientAddress = (address: Array<fhir.Address> = []): string => {
+  const entry = address[0];
+  return entry ? [entry.city, entry.state].filter(item => !!item).join(', ') : 'No Address';
+};
 
-/**
- * A field and its description
- *
- * @param label - the field text
- * @param value - the value of the field
- * @constructor
- */
-const SnapshotField: React.FC<FieldProps> = ({label, value}: FieldProps) => {
-  return(
-    <div>
-      <dt> {label} </dt>
-      <dd> {value} </dd>
+const PatientSnapshot: FC<{}> = () => {
+  const patient = usePatient();
+
+  const name = useMemo(() => getPatientName(patient.name), [patient]);
+  const address = useMemo(() => getPatientAddress(patient.address), [patient]);
+
+  return (
+    <div className={classes['patient-snapshot']}>
+      <FontAwesomeIcon icon="user-circle" className={classes['patient-snapshot__photo']} />
+
+      <div className={classes['patient-snapshot__info']}>
+        <div className={classes['patient-name']}>{name}</div>
+
+        <ul className={classes['patient-snapshot__list']}>
+          <li>DOB: {patient.birthDate}</li>
+          <li>Admin. Sex: {patient.gender}</li>
+          <li>Location: {address}</li>
+        </ul>
+      </div>
     </div>
   );
 };

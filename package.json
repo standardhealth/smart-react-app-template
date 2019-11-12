@@ -3,16 +3,31 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-brands-svg-icons": "^5.11.2",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
+    "@types/fhir": "^0.0.31",
     "@types/jest": "^24.0.19",
     "@types/node": "^12.11.1",
     "@types/react": "^16.9.9",
     "@types/react-dom": "^16.9.2",
+    "@types/react-select": "^3.0.5",
     "fhirclient": "^2.1.0",
     "node-sass": "^4.12.0",
     "react": "^16.10.1",
     "react-dom": "^16.10.1",
+    "react-fontawesome": "^1.6.1",
     "react-scripts": "3.2.0",
+    "react-select": "^3.0.8",
     "typescript": "^3.6.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^4.1.2",
+    "@testing-library/react": "^9.3.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "prettier": "1.18.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -20,8 +35,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint './src/**/*.{ts,tsx}'",
-    "tsx-linting-rules": "eslint --print-config './src/**/*.tsx'",
-    "lint-fix": "eslint './src/**/*.{ts,tsx}' --fix"
+    "lint-fix": "eslint './src/**/*.{ts,tsx}' --fix",
+    "tsx-linting-rules": "eslint --print-config './src/**/*.tsx'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -37,9 +52,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "@testing-library/jest-dom": "^4.1.2",
-    "@testing-library/react": "^9.3.0"
   }
 }

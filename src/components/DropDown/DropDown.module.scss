@@ -1,0 +1,11 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  label {
+    font-weight: 700;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+  }
+}
