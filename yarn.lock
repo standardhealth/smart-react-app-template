@@ -1858,6 +1858,11 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
+antlr4@^4.7.1:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/antlr4/-/antlr4-4.7.2.tgz#9d0b5987bb63660de658055ee9149141b4d9b462"
+  integrity sha512-vZA1xYufXLe3LX+ja9rIVxjRmILb1x3k7KYZHltRbfJtXjJ1DlFIqt+CbPYmghx0EuzY9DajiDw+MdyEt1qAsQ==
+
 anymatch@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/anymatch/-/anymatch-2.0.0.tgz#bcb24b4f37934d9aa7ac17b4adaf89e7c76ef2eb"
@@ -2860,6 +2865,11 @@ commander@^2.11.0, commander@^2.20.0, commander@~2.20.0:
   version "2.20.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.1.tgz#3863ce3ca92d0831dcf2a102f5fb4b5926afd0f9"
   integrity sha512-cCuLsMhJeWQ/ZpsFTbE765kvVfoeSddc4nU3up4fV+fDBcfUXnbITJ+JzhkdjzOqhURjZgujxaioam4RM9yGUg==
+
+commander@^2.18.0:
+  version "2.20.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
+  integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
 
 commander@~2.19.0:
   version "2.19.0"
@@ -4307,6 +4317,14 @@ fb-watchman@^2.0.0:
   dependencies:
     bser "^2.0.0"
 
+fhir-mapper@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/fhir-mapper/-/fhir-mapper-3.1.1.tgz#e80affd0533bad6c3d211b654e80e93642b0f790"
+  integrity sha512-XJ1JjkiYgHaM1TbhTiNiFkjQz5soUfOVr1i9wiHZ5BNmPtqaFl0amFRNEW0q/g+GDrvphyk0Loq/fFEwVwutNQ==
+  dependencies:
+    fhirpath "^0.10.3"
+    lodash "^4.17.13"
+
 fhir-visualizers@synthetichealth/fhir-visualizers:
   version "0.0.1"
   resolved "https://codeload.github.com/synthetichealth/fhir-visualizers/tar.gz/5b02cc2bd595c4f8c5e821292c7f5a2dd8806a43"
@@ -4321,6 +4339,15 @@ fhirclient@^2.1.0:
     debug "^4.1.1"
     node-fetch-npm "^2.0.2"
     whatwg-fetch "^3.0.0"
+
+fhirpath@^0.10.3:
+  version "0.10.3"
+  resolved "https://registry.yarnpkg.com/fhirpath/-/fhirpath-0.10.3.tgz#b7a09ea47a42990ac447cac7ebb7bf845d56d18b"
+  integrity sha512-QxASSupObeYe8IAfX/qbSJoU57iitln8sN3W716G4gk6NJcLcbDLuiINibPqQ1MyugUEpUH/trl8Kb9i/l3Mhw==
+  dependencies:
+    antlr4 "^4.7.1"
+    commander "^2.18.0"
+    js-yaml "^3.12.0"
 
 figgy-pudding@^3.5.1:
   version "3.5.1"
@@ -6054,7 +6081,7 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
-js-yaml@^3.13.1:
+js-yaml@^3.12.0, js-yaml@^3.13.1:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
