@@ -4,7 +4,7 @@ import { mappers } from 'fhir-mapper';
 import config from './ConfigManager';
 
 const mapperName = config.get('mapper');
-const MapperClass = mapperName && mappers[mapperName];
+const MapperClass = mappers[mapperName];
 const mapperInstance = MapperClass ? new MapperClass() : null;
 
 const applyMapping = (bundle) => {
