@@ -14,7 +14,7 @@
     "@types/react-dom": "^16.9.9",
     "@types/react-select": "^3.0.26",
     "fhir-mapper": "^3.1.2",
-    "fhir-visualizers": "synthetichealth/fhir-visualizers",
+    "fhir-visualizers": "^0.0.2",
     "fhirclient": "^2.3.10",
     "node-sass": "^4.14.1",
     "react": "^17.0.1",
