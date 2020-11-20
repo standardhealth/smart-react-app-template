@@ -4833,9 +4833,10 @@ fhir-mapper@^3.1.2:
     fhirpath "^0.10.3"
     lodash "^4.17.13"
 
-fhir-visualizers@synthetichealth/fhir-visualizers:
+fhir-visualizers@^0.0.2:
   version "0.0.2"
-  resolved "https://codeload.github.com/synthetichealth/fhir-visualizers/tar.gz/83de014992e5b84cdb68c5dbc254ac95eccf929a"
+  resolved "https://registry.yarnpkg.com/fhir-visualizers/-/fhir-visualizers-0.0.2.tgz#c4735d8b047aabcace26ee78cd706c3ca7f7673f"
+  integrity sha512-/GnrDyhcw3UJ/ulFajIr992jSjWMnZy9rQxMuraHumNrSh+Pd6fkm9k+VXejoOjjphR6C8g+Ekcs7heSSDHyIw==
   dependencies:
     bootstrap "^4.4.1"
     moment "^2.24.0"
