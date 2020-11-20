@@ -11,7 +11,7 @@ import {
   ObservationsVisualizer,
   PatientVisualizer,
   ProceduresVisualizer,
-  ReportsVisualizer
+  ReportsVisualizer,
 } from 'fhir-visualizers';
 
 type PatientRecordProps = {
@@ -19,7 +19,7 @@ type PatientRecordProps = {
 };
 
 const getResourceByType = (patientRecord: ReadonlyArray<any>, resourceType: string) => {
-  return patientRecord.filter(resource => resource.resourceType === resourceType);
+  return patientRecord.filter((resource) => resource.resourceType === resourceType);
 };
 
 const PatientRecord: FC<PatientRecordProps> = ({ resources }) => {

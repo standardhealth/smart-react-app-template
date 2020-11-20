@@ -10,7 +10,7 @@ export const mockedPatient = {
   name: [{ given: ['Jane'], family: 'Doe' }],
   birthDate: '1960-04-01',
   gender: 'female',
-  address: 'Anycity, Anystate'
+  address: 'Anycity, Anystate',
 };
 
 const MockedPatientProvider: FC<PatientProviderProps> = ({ patient = null, children }) => (

@@ -13,7 +13,7 @@ type Option = {
 
 const pathwayOptions = [
   { label: 'Medications', value: 'meds' },
-  { label: 'Chart', value: 'chart' }
+  { label: 'Chart', value: 'chart' },
 ];
 
 const Navigation: FC<{}> = () => {
