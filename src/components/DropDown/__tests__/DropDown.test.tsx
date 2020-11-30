@@ -8,7 +8,7 @@ const name = 'fakeName';
 const options = [
   { label: 'cat', value: 'feline' },
   { label: 'dog', value: 'canine' },
-  { label: 'lion', value: 'simba' }
+  { label: 'lion', value: 'simba' },
 ];
 
 describe('<DropDown />', () => {
@@ -23,7 +23,7 @@ describe('<DropDown />', () => {
     const optionsRendered = container.querySelectorAll('.DropDown__option');
     expect(optionsRendered.length).toEqual(options.length);
 
-    options.forEach(option => {
+    options.forEach((option) => {
       expect(getByText(option.label)).toBeDefined();
     });
   });

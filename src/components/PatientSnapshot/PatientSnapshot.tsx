@@ -5,13 +5,13 @@ import { usePatient } from '../PatientProvider';
 import classes from './PatientSnapshot.module.scss';
 
 const getPatientName = (name: Array<fhir.HumanName> = []): string => {
-  const entry = name.find(n => n.use === 'official') || name[0];
+  const entry = name.find((n) => n.use === 'official') || name[0];
   return entry ? `${(entry.given || []).join(' ')} ${entry.family}` : 'No name';
 };
 
 const getPatientAddress = (address: Array<fhir.Address> = []): string => {
   const entry = address[0];
-  return entry ? [entry.city, entry.state].filter(item => !!item).join(', ') : 'No Address';
+  return entry ? [entry.city, entry.state].filter((item) => !!item).join(', ') : 'No Address';
 };
 
 const PatientSnapshot: FC<{}> = () => {
