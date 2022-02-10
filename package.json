@@ -16,7 +16,7 @@
     "fhir-mapper": "^3.1.2",
     "fhir-visualizers": "^0.0.2",
     "fhirclient": "^2.3.10",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-fontawesome": "^1.7.1",
